@@ -104,7 +104,7 @@ class UserController implements
     /**
      * Handler with form to update a user.
      *
-     * @param datatype $id User ID
+     * @param int $id User ID
      *
      * @return void
      */
@@ -130,7 +130,7 @@ class UserController implements
     /**
      * Description.
      *
-     * @param datatype $input What user to login.
+     * @param string $input What user to login.
      *
      * @throws Exception
      *
@@ -168,7 +168,7 @@ class UserController implements
      *
      * @throws Exception
      *
-     * @return void
+     * @return $user
      */
     public function getUser($userInput, $userSearch)
     {
