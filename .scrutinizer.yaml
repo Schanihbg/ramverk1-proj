@@ -1,0 +1,31 @@
+imports:
+    - php
+
+filter:
+    excluded_paths: [vendor/*, test/*, setup/*]
+
+build:
+
+    dependencies:
+        before:
+            -
+                command: "mkdir build"
+
+    tests:
+        override:
+            -
+                command: "phpunit --configuration .phpunit.xml"
+                coverage:
+                    file: "build/coverage.clover"
+                    format: "php-clover"
+
+    nodes:
+        analysis:
+            tests:
+                override:
+                    - php-scrutinizer-run
+
+checks:
+    php:
+        code_rating: true
+        duplication: true
