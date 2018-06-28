@@ -69,7 +69,7 @@ return [
             "callback" => function () {
                 $session = new \Anax\Session\SessionConfigurable();
                 $session->configure("session.php");
-                $session->name("ThisDoesNotMatter");
+                $session->name(["ThisDoesNotMatter"]);
                 $session->start();
                 return $session;
             }
@@ -149,14 +149,6 @@ return [
                 $database->configure("database.php");
                 $database->connect();
                 return $database;
-            }
-        ],
-        "bookController" => [
-            "shared" => true,
-            "callback" => function () {
-                $obj = new \Anax\Book\BookController();
-                $obj->setDI($this);
-                return $obj;
             }
         ],
         "userController" => [

@@ -24,6 +24,18 @@ return [
             "callable" => ["commentController", "newPostAction"]
         ],
         [
+            "info" => "Reply post.",
+            "requestMethod" => "get",
+            "path" => "reply/{id:digit}",
+            "callable" => ["commentController", "replyPost"]
+        ],
+        [
+            "info" => "Reply post action.",
+            "requestMethod" => "post",
+            "path" => "reply_comment_action",
+            "callable" => ["commentController", "replyPostAction"]
+        ],
+        [
             "info" => "Show one post.",
             "requestMethod" => "get",
             "path" => "post/{id:digit}",

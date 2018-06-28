@@ -12,8 +12,6 @@ $app->router     = new \Anax\Route\RouterInjectable();
 $app->view       = new \Anax\View\ViewContainer();
 $app->textfilter = new \Anax\TextFilter\TextFilter();
 $app->session    = new \Anax\Session\SessionConfigurable();
-$app->rem        = new \Anax\RemServer\RemServer();
-$app->remController = new \Anax\RemServer\RemServerController();
 $app->comment    = new \Anax\Comment\CommentModel();
 $app->commentController = new \Anax\Comment\CommentController();
 $app->database   = new \Anax\Database\DatabaseConfigure();
@@ -27,18 +25,11 @@ $app->router->setApp($app);
 // Configure session
 $app->session->configure("session.php");
 
-// Init REM Server
-$app->rem->configure("remserver.php");
-$app->rem->inject(["session" => $app->session]);
-
-// Init controller for the REM Server
-$app->remController->setApp($app);
-
 // Init Comment
 $app->comment->setApp($app);
 $app->comment->inject(["session" => $app->session]);
 
-// Init controller for the REM Server
+// Init controller for the comment
 $app->commentController->setApp($app);
 
 // Configure database

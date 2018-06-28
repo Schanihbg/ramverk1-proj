@@ -162,13 +162,13 @@ class UserController implements
     /**
      * Description.
      *
-     * @param datatype $userInput What to search for.
+     * @param mixed $userInput What to search for.
      *
      * @param string $userSearch What field to check, acronym, id, email.
      *
      * @throws Exception
      *
-     * @return $user
+     * @return User
      */
     public function getUser($userInput, $userSearch)
     {

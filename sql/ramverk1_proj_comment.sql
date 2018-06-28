@@ -4,5 +4,6 @@ CREATE TABLE `ramverk1_proj_comment` (
     `userID` INTEGER NOT NULL,
     `comment` varchar(255) DEFAULT NULL,
     `parentID` INTEGER DEFAULT 0,
-    `postID` INTEGER DEFAULT 0
+    `postID` INTEGER DEFAULT 0,
+    `is_post` INTEGER DEFAULT 0
 ) ENGINE INNODB CHARACTER SET utf8 COLLATE utf8_swedish_ci;

@@ -51,7 +51,7 @@ class CommentModel implements ConfigureInterface, InjectionAwareInterface
      */
     public function viewAll()
     {
-        $sql = "SELECT * FROM `ramverk1_proj_comment`";
+        $sql = "SELECT * FROM `ramverk1_proj_comment` WHERE `is_post` = 1";
 
         return $this->di->get("database")->executeFetchAll($sql);
     }
@@ -63,7 +63,19 @@ class CommentModel implements ConfigureInterface, InjectionAwareInterface
      */
     public function showOnePost($id)
     {
-        $sql = "SELECT * FROM `ramverk1_proj_comment` WHERE id = ?";
+        $sql = "SELECT * FROM `ramverk1_proj_comment` WHERE id = ? OR `postID` = ?";
+
+        return $this->di->get("database")->executeFetchAll($sql, [$id, $id]);
+    }
+
+    /**
+     * Show one reply post
+     *
+     * @return void
+     */
+    public function showOneReplyPost($id)
+    {
+        $sql = "SELECT * FROM `ramverk1_proj_comment` WHERE id = ? OR `postID` = ?";
 
         return $this->di->get("database")->executeFetch($sql, [$id]);
     }
