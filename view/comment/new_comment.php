@@ -6,8 +6,8 @@ if ($this->di->get("session")->get("userLoggedIn")) {
     echo <<< EOD
 <form action="new_comment_action" method="POST">
     <div class="form-group">
-        <label>Email address</label>
-        <input name="email" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" value="{$user->email}" readonly required>
+        <label>Title</label>
+        <input name="title" type="text" class="form-control" aria-describedby="Title" placeholder="Enter title" required>
     </div>
     <div class="form-group">
         <label>Comment</label>
