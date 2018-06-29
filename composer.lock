@@ -496,16 +496,16 @@
         },
         {
             "name": "anax/textfilter",
-            "version": "v1.1.0",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/canax/textfilter.git",
-                "reference": "ee7d68673f7004357643d13c5f1d3a54e7b00177"
+                "reference": "6403976f29e21cb1cdbe031b5374b62296bdc519"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/canax/textfilter/zipball/ee7d68673f7004357643d13c5f1d3a54e7b00177",
-                "reference": "ee7d68673f7004357643d13c5f1d3a54e7b00177",
+                "url": "https://api.github.com/repos/canax/textfilter/zipball/6403976f29e21cb1cdbe031b5374b62296bdc519",
+                "reference": "6403976f29e21cb1cdbe031b5374b62296bdc519",
                 "shasum": ""
             },
             "require": {
@@ -546,7 +546,7 @@
                 "micro",
                 "mvc"
             ],
-            "time": "2018-05-24T20:26:07+00:00"
+            "time": "2018-06-26T11:33:05+00:00"
         },
         {
             "name": "anax/url",
@@ -959,7 +959,7 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v3.4.11",
+            "version": "v3.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",

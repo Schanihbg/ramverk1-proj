@@ -204,7 +204,7 @@ class UserController implements
     /**
      * Delete user
      *
-     * @param datatype $id User ID.
+     * @param int $id User ID.
      *
      * @return void
      */
