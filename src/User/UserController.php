@@ -65,8 +65,8 @@ class UserController implements
         $sql = "SELECT * FROM User WHERE id = ?";
         $data = $this->di->get("database")->executeFetch($sql, [$id]);
 
-        $sql_comments = "CALL getComments(?)";
-        $comments = $this->di->get("database")->executeFetchAll($sql_comments, [$id]);
+        $sqlComments = "CALL getComments(?)";
+        $comments = $this->di->get("database")->executeFetchAll($sqlComments, [$id]);
 
         $view->add("user/profile", ["content" => $data, "comments" => $comments]);
 
