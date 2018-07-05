@@ -56,6 +56,32 @@ class UserController implements
      *
      * @return void
      */
+    public function getOtherUser($id)
+    {
+        $title      = "User profile";
+        $view       = $this->di->get("view");
+        $pageRender = $this->di->get("pageRender");
+
+        $sql = "SELECT * FROM User WHERE id = ?";
+        $data = $this->di->get("database")->executeFetch($sql, [$id]);
+
+        $sql_comments = "CALL getComments(?)";
+        $comments = $this->di->get("database")->executeFetchAll($sql_comments, [$id]);
+
+        $view->add("user/profile", ["content" => $data, "comments" => $comments]);
+
+        $pageRender->renderPage(["title" => $title]);
+    }
+
+
+
+    /**
+     * Description.
+     *
+     * @throws Exception
+     *
+     * @return void
+     */
     public function getPostLogin()
     {
         $title      = "A login page";

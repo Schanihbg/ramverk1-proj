@@ -143,7 +143,7 @@ return [
             }
         ],
         "database" => [
-            "shared" => true,
+            "shared" => false,
             "callback" => function () {
                 $database = new \Anax\Database\DatabaseQueryBuilder();
                 $database->configure("database.php");

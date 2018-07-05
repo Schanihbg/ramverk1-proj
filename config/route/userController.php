@@ -11,6 +11,12 @@ return [
             "callable" => ["userController", "getIndex"],
         ],
         [
+            "info" => "User info with ID.",
+            "requestMethod" => "get",
+            "path" => "{id:digit}",
+            "callable" => ["userController", "getOtherUser"],
+        ],
+        [
             "info" => "Login a user.",
             "requestMethod" => "get|post",
             "path" => "login",
