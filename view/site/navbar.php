@@ -9,6 +9,10 @@ $navbar = [
             "title" => "Comment",
             "route" => "comment",
         ],
+        "tag" => [
+            "title" => "Tag",
+            "route" => "tag",
+        ],
         "about" => [
             "title" => "About",
             "route" => "about",

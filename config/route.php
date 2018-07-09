@@ -27,6 +27,11 @@ return [
             "file" => __DIR__ . "/route/comment.php",
         ],
         [
+            // Tag
+            "mount" => "tag",
+            "file" => __DIR__ . "/route/tag.php",
+        ],
+        [
             // Add routes from userController and mount on user/
             "mount" => "user",
             "file" => __DIR__ . "/route/userController.php",

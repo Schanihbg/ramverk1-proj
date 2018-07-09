@@ -142,6 +142,23 @@ return [
                 return $gravatarController;
             }
         ],
+        "tag" => [
+            "shared" => true,
+            "callback" => function () {
+                $tag = new \Anax\Tag\TagModel();
+                $tag->injectSession($this->get("session"));
+                $tag->setDI($this);
+                return $tag;
+            }
+        ],
+        "tagController" => [
+            "shared" => false,
+            "callback" => function () {
+                $tagController = new \Anax\Tag\TagController();
+                $tagController->setDI($this);
+                return $tagController;
+            }
+        ],
         "database" => [
             "shared" => false,
             "callback" => function () {

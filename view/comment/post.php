@@ -6,7 +6,7 @@ if (isset($content[0]->comment) && !empty($content)) {
     echo '<div class="card" style="width: 256px;">';
     $picture = $this->di->get("gravatarController")->getGravatar($user->email, 256);
     echo sprintf('<img src="%s" alt="Gravatar picture">', $picture);
-    echo sprintf('<p class="text-center">%s</p>', $user->email);
+    echo sprintf('<a href="%s"><p class="text-center">%s</p></a>', $user->id, $user->acronym);
     echo '</div>';
     echo '<br>';
 
@@ -15,6 +15,17 @@ if (isset($content[0]->comment) && !empty($content)) {
     echo '    <div class="card" style="width: 18rem;">';
     echo '        <div class="card-body">';
     echo $this->di->get("textfilter")->markdown(htmlspecialchars($top_post->comment, ENT_QUOTES));
+    echo '        </div>';
+    echo '        <hr>';
+
+    echo '        <div class="text-center">';
+    preg_match_all("/\#[a-öA-Ö0-9]+/", $top_post->tags, $output_array);
+    foreach ($output_array as $key => $value) {
+        foreach ($value as $key => $tag) {
+            echo sprintf('<a href="%s">%s</a>', $this->di->get("url")->create("tag/".ltrim($tag, "#")), $tag);
+            echo " ";
+        }
+    }
     echo '        </div>';
     echo '    </div>';
 
