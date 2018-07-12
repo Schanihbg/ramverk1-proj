@@ -34,7 +34,7 @@ if ($content[0]->is_post == 0) {
     echo '    </div>';
 
     $commentsArray = array();
-    foreach (array_slice($content, 1) as $key => $value) {
+    foreach (array_slice($content, 1) as $value) {
         if ($value->is_post == 1) {
             $commentsArray[$value->id] = array($value);
         }
@@ -47,7 +47,7 @@ if ($content[0]->is_post == 0) {
             } elseif (array_key_exists($value->parentID, $commentsArray)) {
                 array_push($commentsArray[$value->parentID], $value);
             } else {
-                foreach (array_slice($content, 1) as $key => $check) {
+                foreach (array_slice($content, 1) as $check) {
                     if ($value->parentID == $check->id) {
                         array_push($commentsArray[$check->parentID], $value);
                     }
@@ -57,7 +57,7 @@ if ($content[0]->is_post == 0) {
     }
 
     $stepping = 1;
-    foreach ($commentsArray as $key => $value) {
+    foreach ($commentsArray as $value) {
         foreach ($value as $comment) {
             if ($comment->parentID == $top_post->id) {
                 $stepping = 1;
