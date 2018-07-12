@@ -3,6 +3,11 @@ if ($this->di->get("session")->get("userLoggedIn")) {
     $user = $this->di->get("userController")->getUser($this->di->get("session")->get("userLoggedIn"), "acronym");
 
     if (isset($content[0]->comment)) {
+        $thePostID = $content[0]->postID;
+
+        if ($content[0]->is_post == 1) {
+            $thePostID = $content[0]->id;
+        }
         echo <<< EOD
         <form action="../reply_comment_action" method="POST">
             <div class="form-group">
@@ -21,7 +26,8 @@ if ($this->di->get("session")->get("userLoggedIn")) {
                 <label>Comment</label>
                 <textarea name="comment_area" class="form-control" rows="3" required></textarea>
             </div>
-            <input type="hidden" name="post_id" value="{$content[0]->id}">
+            <input type="hidden" name="post_id" value="{$thePostID}">
+            <input type="hidden" name="comment_id" value="{$content[0]->id}">
             <a class="btn btn-outline-primary" href="{$this->di->get("url")->create("comment")}">Go back</a>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

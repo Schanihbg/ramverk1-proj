@@ -57,7 +57,7 @@ class CommentController implements InjectionAwareInterface
      */
     public function replyPost($id)
     {
-        $data = $this->di->get("comment")->showOnePost($id);
+        $data = $this->di->get("comment")->showOneReplyPost($id);
 
         $this->di->get("view")->add("comment/reply", ["content" => $data]);
         $this->di->get("pageRender")->renderPage(["title" => "Reply comment"]);

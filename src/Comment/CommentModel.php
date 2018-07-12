@@ -75,9 +75,9 @@ class CommentModel implements ConfigureInterface, InjectionAwareInterface
      */
     public function showOneReplyPost($id)
     {
-        $sql = "SELECT * FROM `ramverk1_proj_comment` WHERE id = ? OR `postID` = ?";
+        $sql = "SELECT * FROM `ramverk1_proj_comment` WHERE id = ?";
 
-        return $this->di->get("database")->executeFetch($sql, [$id]);
+        return $this->di->get("database")->executeFetchAll($sql, [$id]);
     }
 
     /**

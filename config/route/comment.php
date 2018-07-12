@@ -25,7 +25,7 @@ return [
         ],
         [
             "info" => "Reply post.",
-            "requestMethod" => "get",
+            "requestMethod" => "get|post",
             "path" => "reply/{id:digit}",
             "callable" => ["commentController", "replyPost"]
         ],

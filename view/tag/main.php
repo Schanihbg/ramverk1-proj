@@ -4,8 +4,8 @@ $tagsArray = array();
 foreach ($content as $value) {
     preg_match_all("/\#[a-öA-Ö0-9]+/", $value->tags, $tempArray);
 
-    foreach (array_values($tempArray[0]) as $value) {
-        array_push($tagsArray, $value);
+    foreach (array_values($tempArray[0]) as $tag) {
+        array_push($tagsArray, $tag);
     }
 }
 
