@@ -17,6 +17,12 @@ return [
             "callable" => ["userController", "getOtherUser"],
         ],
         [
+            "info" => "List all users.",
+            "requestMethod" => "get|post",
+            "path" => "users",
+            "callable" => ["userController", "getAllUsers"],
+        ],
+        [
             "info" => "Login a user.",
             "requestMethod" => "get|post",
             "path" => "login",

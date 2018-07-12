@@ -13,6 +13,10 @@ $navbar = [
             "title" => "Tag",
             "route" => "tag",
         ],
+        "user" => [
+            "title" => "Users",
+            "route" => "user/users",
+        ],
         "about" => [
             "title" => "About",
             "route" => "about",

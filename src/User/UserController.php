@@ -74,6 +74,28 @@ class UserController implements
     }
 
 
+    /**
+     * Description.
+     *
+     * @throws Exception
+     *
+     * @return void
+     */
+    public function getAllUsers()
+    {
+        $title      = "All Users";
+        $view       = $this->di->get("view");
+        $pageRender = $this->di->get("pageRender");
+
+        $sql = "SELECT * FROM `User`";
+
+        $data = $this->di->get("database")->executeFetchAll($sql);
+
+        $view->add("user/all", ["content" => $data]);
+
+        $pageRender->renderPage(["title" => $title]);
+    }
+
 
     /**
      * Description.
