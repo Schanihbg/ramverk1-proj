@@ -28,7 +28,7 @@ $navbar = [
 <div class="container">
 <div class="header">
     <nav class="navbar navbar-dark bg-dark navbar-expand-md rounded">
-        <a class="navbar-brand" href="<?= $di->get("url")->create($navbar["items"]["home"]["route"]) ?>">Lösningen</a>
+        <a class="navbar-brand" href="<?= $di->get("url")->create($navbar["items"]["home"]["route"]) ?>">Liker</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#containerNavbar" aria-controls="containerNavbar" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

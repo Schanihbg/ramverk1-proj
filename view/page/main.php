@@ -1,4 +1,9 @@
 <?php
+echo '<div class="text-center">';
+echo sprintf('<p>%s</p>', $this->di->get("textfilter")->markdown("# Welcome to Liker"));
+echo sprintf('<p>%s</p>', $this->di->get("textfilter")->markdown("The site where *YOU* can like anything."));
+echo '</div>';
+
 // Flex
 echo '<div class="d-flex flex-row">';
 

@@ -5,13 +5,6 @@ if ($content[0]->is_post == 0) {
     $top_post = $content[0];
     $user = $this->di->get("userController")->getUser($top_post->userID, "id");
 
-    echo '<div class="card" style="width: 256px;">';
-    $picture = $this->di->get("gravatarController")->getGravatar($user->email, 256);
-    echo sprintf('<img src="%s" alt="Gravatar picture">', $picture);
-    echo sprintf('<a href="%s"><p class="text-center">%s</p></a>', $user->id, $user->acronym);
-    echo '</div>';
-    echo '<br>';
-
     echo '<div class="media">';
     echo '<div class="media-body">';
     echo '    <div class="card" style="width: 18rem;">';
@@ -20,13 +13,16 @@ if ($content[0]->is_post == 0) {
     echo '        </div>';
     echo '        <hr>';
 
-    echo '        <div class="text-center">';
-    echo 'Tags: ';
+    echo '        <div class="d-flex flex-row">';
+    echo sprintf('<img src="%s" alt="Gravatar picture">', $this->di->get("gravatarController")->getGravatar($user->email, 25));
+    echo sprintf('by <a class="px-1" href="%s">%s</a>', $this->di->get("url")->create("user/".$user->id), $user->acronym);
+    echo '|';
+    echo '<div class="px-1">Tags: </div>';
 
     preg_match_all("/\#[a-öA-Ö0-9]+/", $top_post->tags, $output_array);
     foreach ($output_array as $value) {
         foreach ($value as $tag) {
-            echo sprintf('<a href="%s">%s</a>', $this->di->get("url")->create("tag/".ltrim($tag, "#")), $tag);
+            echo sprintf('<a class="px-1" href="%s">%s</a>', $this->di->get("url")->create("tag/".ltrim($tag, "#")), $tag);
             echo " ";
         }
     }
@@ -64,12 +60,20 @@ if ($content[0]->is_post == 0) {
             } elseif ($comment->parentID == $value[0]->id) {
                 $stepping = 2;
             }
+            $poster = $this->di->get("userController")->getUser($comment->userID, "id");
 
             echo '    <div class="card" style="width: 18rem; margin-left: ' . 1 * $stepping . 'rem">';
             echo '        <div class="card-body">';
             echo $this->di->get("textfilter")->markdown(htmlspecialchars($comment->comment, ENT_QUOTES));
             echo '        </div>';
-            echo sprintf('<a class="" href="%s">Reply</a>', $this->di->get("url")->create("comment/reply/".$comment->id));
+            echo '<hr>';
+            echo '        <div class="d-flex flex-row">';
+            $picture = $this->di->get("gravatarController")->getGravatar($poster->email, 25);
+            echo sprintf('<img src="%s" alt="Gravatar picture">', $picture);
+            echo sprintf('by <a class="px-1" href="%s">%s</a>', $this->di->get("url")->create("user/".$poster->id), $poster->acronym);
+            echo '|';
+            echo sprintf('<a class="px-1" href="%s">Reply</a>', $this->di->get("url")->create("comment/reply/".$comment->id));
+            echo '        </div>';
             echo '    </div>';
 
             $stepping++;
