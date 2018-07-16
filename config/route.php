@@ -32,6 +32,11 @@ return [
             "file" => __DIR__ . "/route/tag.php",
         ],
         [
+            // Page
+            "mount" => null,
+            "file" => __DIR__ . "/route/page.php",
+        ],
+        [
             // Add routes from userController and mount on user/
             "mount" => "user",
             "file" => __DIR__ . "/route/userController.php",

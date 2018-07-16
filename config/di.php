@@ -159,6 +159,14 @@ return [
                 return $tagController;
             }
         ],
+        "pageController" => [
+            "shared" => false,
+            "callback" => function () {
+                $pageController = new \Anax\Page\PageController();
+                $pageController->setDI($this);
+                return $pageController;
+            }
+        ],
         "database" => [
             "shared" => false,
             "callback" => function () {
