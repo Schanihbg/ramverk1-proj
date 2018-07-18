@@ -4,3 +4,21 @@
 
 Ramverk 1 project
 ==================================
+
+# Requirements
+Tested with
+* PHP 7.0+
+* MariaDB 10.3
+* Apache 2.4+
+
+Other combinations might work
+
+# Install
+* Clone this project
+* import sql file from `sql/ramverk1_proj.sql`
+* Copy `vendor/anax/database/config/database.php` to `config/database.php`
+* Configure SQL connection in `database.php`
+* Run composer install
+
+Optional:
+* Create user and change to admin rights in SQL
