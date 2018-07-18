@@ -70,7 +70,7 @@ echo '    </div>';
 echo '    <ul class="list-group list-group-flush">';
 
 foreach ($allTags as $key => $value) {
-    $url = $this->di->get("url")->create("tag/".ltrim($value, "#"));
+    $url = $this->di->get("url")->create("tag/".ltrim($key, "#"));
 
     echo sprintf('<li class="list-group-item"><a href="%s">%s (%s)</a></li>', $url, $key, $value);
 }
